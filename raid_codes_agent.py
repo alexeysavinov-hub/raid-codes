@@ -29,13 +29,44 @@ from bs4 import BeautifulSoup
 # Настройки
 # ----------------------------------------------------------------------------
 
-SOURCES = [
-    "https://www.pockettactics.com/raid/promo-codes",
-    "https://www.pcgamesn.com/raid-shadow-legends/codes",
-    "https://www.dexerto.com/gaming/raid-shadow-legends-promo-codes-free-silver-xp-boosts-1773448/",
-    "https://www.pocketgamer.com/raid-shadow-legends/redeem-codes/",
-    "https://mmoculture.com/2026/08/raid-shadow-legends-codes/",
-]
+GAMES = {
+    "raid": {
+        "title": "RAID: Shadow Legends",
+        "state": "seen_codes.json",
+        "output": "codes.md",
+        "note": "Ввод: Меню → Промокоды. Один код в 24 часа.",
+        "sources": [
+            "https://www.pockettactics.com/raid/promo-codes",
+            "https://www.pcgamesn.com/raid-shadow-legends/codes",
+            "https://www.dexerto.com/gaming/raid-shadow-legends-promo-codes-free-silver-xp-boosts-1773448/",
+            "https://www.pocketgamer.com/raid-shadow-legends/redeem-codes/",
+            "https://mmoculture.com/2026/08/raid-shadow-legends-codes/",
+        ],
+        "rewards": (
+            r"\b(silver|energy|brew|brews|shard|shards|tome|tomes|multi-?battle|"
+            r"champion|xp|gem|gems|chicken|refill|instant battle|epic|legendary|rare)\b"
+        ),
+    },
+    "ludus": {
+        "title": "LUDUS: Merge Arena PvP",
+        "state": "seen_codes_ludus.json",
+        "output": "codes_ludus.md",
+        "note": "Ввод: Меню (☰) → Promo Code. Коды можно вводить подряд, один раз каждый.",
+        "sources": [
+            "https://www.pocketgamer.com/ludus-merge-battle-arena/codes/",
+            "https://www.dudcode.com/code/ludus-codes/",
+            "https://ponly.com/ludus-promo-codes/",
+            "https://progamepilot.com/ludus-codes/",
+            "https://gamingonphone.com/guides/ludus-promo-codes-and-how-to-use-them/",
+            "https://frvr.com/blog/ludus-promo-codes-links/",
+        ],
+        "rewards": (
+            r"\b(gold|emerald|emeralds|compass|compasses|rune|runes|card|cards|"
+            r"crystal|crystals|gem|gems|cannonball|cannonballs|hero|heroes|"
+            r"legendary|epic|rare|royal|chest|chests|coin|coins)\b"
+        ),
+    },
+}
 
 STATE_FILE = Path(os.getenv("RAID_STATE_FILE", "seen_codes.json"))
 OUTPUT_FILE = Path(os.getenv("RAID_OUTPUT_FILE", "codes.md"))
@@ -50,11 +81,7 @@ HEADERS = {
 
 # Слова-маркеры награды. Строка-кандидат должна содержать хотя бы одно —
 # это главный фильтр, который отсекает случайный текст.
-REWARD_WORDS = re.compile(
-    r"\b(silver|energy|brew|brews|shard|shards|tome|tomes|multi-?battle|"
-    r"champion|xp|gem|gems|chicken|refill|instant battle|epic|legendary|rare)\b",
-    re.I,
-)
+REWARD_WORDS = re.compile(r"$^")  # задаётся в main() по выбранной игре
 
 # Мусор, который часто выглядит как код, но им не является.
 STOPWORDS = {
@@ -138,7 +165,23 @@ def extract_from_html(html: str) -> dict:
             if looks_like_code(c, strong_position=strong, reward_hits=hits):
                 found.setdefault(c.strip('"\u201c\u201d*.,()[]'), line[:220])
 
-    # 2. Таблицы: первая ячейка = код, вторая = награда
+    # 2. Списки кодов подряд: "AAA, BBB, CCC" или "AAA | BBB | CCC".
+    #    Награды рядом может не быть, поэтому требуем минимум 3 похожих токена.
+    for el in soup.find_all(["li", "p", "td", "div"]):
+        line = " ".join(el.get_text(" ", strip=True).split())
+        if not line or len(line) > 2000 or ("," not in line and "|" not in line):
+            continue
+        tokens = [t.strip(" .;\u00b7") for t in re.split(r"[,|\u00b7]", line)]
+        strict = [
+            t for t in tokens
+            if CODE_RE.match(t) and len(t) >= 6 and t.lower() not in STOPWORDS
+            and t.upper() == t and not t.isdigit()
+        ]
+        if len(strict) >= 3 and len(strict) >= len(tokens) * 0.6:
+            for t in strict:
+                found.setdefault(t, f"из списка кодов ({len(strict)} шт.)")
+
+    # 3. Таблицы: первая ячейка = код, вторая = награда
     for row in soup.find_all("tr"):
         cells = [c.get_text(" ", strip=True) for c in row.find_all(["td", "th"])]
         if len(cells) >= 2 and cells[0] and " " not in cells[0]:
@@ -239,9 +282,9 @@ def notify_email(subject: str, body: str) -> None:
 # Отчёт
 # ----------------------------------------------------------------------------
 
-def write_report(state: dict) -> None:
+def write_report(state: dict, title: str, note: str) -> None:
     lines = [
-        "# Промокоды RAID: Shadow Legends",
+        f"# Промокоды: {title}",
         "",
         f"Обновлено: {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC · "
         f"всего кодов: {len(state)}",
@@ -253,23 +296,31 @@ def write_report(state: dict) -> None:
     for code, info in ordered:
         ctx = info["context"].replace("|", "/")[:150]
         lines.append(f"| `{code}` | {ctx} | {info['first_seen'][:10]} |")
-    lines += ["", "Коды вводятся в игре: Меню → Промокоды. Один код в 24 часа."]
+    lines += ["", note]
     OUTPUT_FILE.write_text("\n".join(lines), encoding="utf-8")
 
 
 # ----------------------------------------------------------------------------
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Агент поиска промокодов RAID")
+    ap = argparse.ArgumentParser(description="Агент поиска промокодов")
+    ap.add_argument("--game", choices=sorted(GAMES), default="raid",
+                    help="какая игра (по умолчанию raid)")
     ap.add_argument("--all", action="store_true", help="показать все известные коды")
     ap.add_argument("--reset", action="store_true", help="очистить историю")
     ap.add_argument("--test", action="store_true",
                     help="отправить тестовое сообщение и выйти")
     args = ap.parse_args()
 
+    global REWARD_WORDS, STATE_FILE, OUTPUT_FILE
+    game = GAMES[args.game]
+    REWARD_WORDS = re.compile(game["rewards"], re.I)
+    STATE_FILE = Path(os.getenv("RAID_STATE_FILE", game["state"]))
+    OUTPUT_FILE = Path(os.getenv("RAID_OUTPUT_FILE", game["output"]))
+
     if args.test:
         msg = ("✅ Проверка связи.\n\n"
-               "Агент промокодов RAID настроен и подключён к этому чату.\n"
+               f"Агент промокодов ({game['title']}) подключён к этому чату.\n"
                "Дальше сообщения будут приходить только при появлении новых кодов.")
         print(msg)
         if not os.getenv("TELEGRAM_BOT_TOKEN"):
@@ -291,8 +342,8 @@ def main() -> int:
     state = load_state()
     first_run = not state
 
-    print(f"Проверяю {len(SOURCES)} источников…")
-    found = scan(SOURCES)
+    print(f"[{game['title']}] проверяю {len(game['sources'])} источников…")
+    found = scan(game["sources"])
     print(f"Найдено кандидатов: {len(found)}")
 
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -313,7 +364,7 @@ def main() -> int:
             new_codes.append(code)
 
     save_state(state)
-    write_report(state)
+    write_report(state, game["title"], game["note"])
 
     if args.all:
         for code, info in sorted(state.items()):
@@ -329,15 +380,15 @@ def main() -> int:
         print("\nНовых кодов нет.")
         return 0
 
-    body_lines = [f"🎁 Новые промокоды RAID ({len(new_codes)}):", ""]
+    body_lines = [f"🎁 {game['title']} — новых кодов: {len(new_codes)}", ""]
     for code in new_codes:
         body_lines.append(f"• {code} — {state[code]['context'][:140]}")
-    body_lines += ["", "Ввод: Меню → Промокоды. Один код в 24 часа."]
+    body_lines += ["", game["note"]]
     body = "\n".join(body_lines)
 
     print("\n" + body)
     notify_telegram(body)
-    notify_email(f"Новые промокоды RAID ({len(new_codes)})", body)
+    notify_email(f"Новые промокоды: {game['title']} ({len(new_codes)})", body)
     return 0
 
 
