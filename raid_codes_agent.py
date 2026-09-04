@@ -263,7 +263,26 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Агент поиска промокодов RAID")
     ap.add_argument("--all", action="store_true", help="показать все известные коды")
     ap.add_argument("--reset", action="store_true", help="очистить историю")
+    ap.add_argument("--test", action="store_true",
+                    help="отправить тестовое сообщение и выйти")
     args = ap.parse_args()
+
+    if args.test:
+        msg = ("✅ Проверка связи.\n\n"
+               "Агент промокодов RAID настроен и подключён к этому чату.\n"
+               "Дальше сообщения будут приходить только при появлении новых кодов.")
+        print(msg)
+        if not os.getenv("TELEGRAM_BOT_TOKEN"):
+            print("\n[!] TELEGRAM_BOT_TOKEN не задан — отправлять некуда.",
+                  file=sys.stderr)
+            return 1
+        if not os.getenv("TELEGRAM_CHAT_ID"):
+            print("\n[!] TELEGRAM_CHAT_ID не задан — отправлять некуда.",
+                  file=sys.stderr)
+            return 1
+        notify_telegram(msg)
+        notify_email("Проверка связи: агент промокодов RAID", msg)
+        return 0
 
     if args.reset and STATE_FILE.exists():
         STATE_FILE.unlink()
