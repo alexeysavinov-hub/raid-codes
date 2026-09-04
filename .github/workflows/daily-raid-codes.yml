@@ -16,6 +16,9 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -25,16 +28,22 @@ jobs:
 
       - run: pip install requests beautifulsoup4
 
-      - name: Проверить коды
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python raid_codes_agent.py ${{ github.event.inputs.test == 'true' && '--test' || '' }}
+      - name: Тестовое сообщение
+        if: github.event.inputs.test == 'true'
+        run: python raid_codes_agent.py --test
 
-      - name: Сохранить историю и список
+      - name: Проверить коды RAID
+        if: github.event.inputs.test != 'true'
+        run: python raid_codes_agent.py --game raid
+
+      - name: Проверить коды LUDUS
+        if: github.event.inputs.test != 'true'
+        run: python raid_codes_agent.py --game ludus
+
+      - name: Сохранить историю и списки
         run: |
           git config user.name  "raid-codes-bot"
           git config user.email "actions@github.com"
-          git add seen_codes.json codes.md
+          git add -A seen_codes.json codes.md seen_codes_ludus.json codes_ludus.md
           git diff --staged --quiet || git commit -m "codes: $(date -u +%Y-%m-%d)"
           git push
