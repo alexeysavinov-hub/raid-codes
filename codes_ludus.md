@@ -1,9 +1,10 @@
 # Промокоды: LUDUS: Merge Arena PvP
 
-Обновлено: 2026-09-06 11:34 UTC · всего кодов: 133
+Обновлено: 2026-09-07 13:21 UTC · всего кодов: 134
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `THANHGIONG` | THANHGIONG - Compasses, Emeralds, Gold (Valid until September 10th) (new!) | 2026-09-07 |
 | `0NPI0QA4VG6N` | из списка кодов (91 шт.) | 2026-09-04 |
 | `11SALE11` | из списка кодов (91 шт.) | 2026-09-04 |
 | `1STSEASON` | 1STSEASON – 1500 Gold and 3000 Division Ribbons (valid until Mar. 16, 2026) | 2026-09-04 |
