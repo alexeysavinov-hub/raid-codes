@@ -1,9 +1,12 @@
 # Промокоды: RAID: Shadow Legends
 
-Обновлено: 2026-09-08 12:00 UTC · всего кодов: 134
+Обновлено: 2026-09-09 12:12 UTC · всего кодов: 137
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `HappyBdayUDK` | HappyBdayUDK - 300k silver, 15 brews, and 50 auto battles (new!) | 2026-09-09 |
+| `Dorothy` | Dorothy - one full energy and one four-star chicken (new!) | 2026-09-09 |
+| `ToAllFromMid` | ToAllFromMid - 100 energy, 30 brews, and 300k silver (new!) | 2026-09-09 |
 | `RAIDAutumn` | RAIDAutumn - 50 Multibattle Attempts, 5* Chicken, 300,000 Silver (expires September 12th) (new!) | 2026-09-07 |
 | `13YEARSPLARIUM` | из списка кодов (66 шт.) | 2026-09-04 |
 | `3YEARSRAID` | из списка кодов (66 шт.) | 2026-09-04 |
