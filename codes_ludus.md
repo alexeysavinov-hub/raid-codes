@@ -1,9 +1,10 @@
 # Промокоды: LUDUS: Merge Arena PvP
 
-Обновлено: 2026-09-12 11:31 UTC · всего кодов: 134
+Обновлено: 2026-09-13 12:35 UTC · всего кодов: 135
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `GOLDVEIN` | GOLDVEIN - Cannonball (expires September 15th) (new!) | 2026-09-13 |
 | `THANHGIONG` | THANHGIONG - Compasses, Emeralds, Gold (Valid until September 10th) (new!) | 2026-09-07 |
 | `0NPI0QA4VG6N` | из списка кодов (91 шт.) | 2026-09-04 |
 | `11SALE11` | из списка кодов (91 шт.) | 2026-09-04 |
