@@ -1,9 +1,10 @@
 # Промокоды: RAID: Shadow Legends
 
-Обновлено: 2026-09-30 13:23 UTC · всего кодов: 137
+Обновлено: 2026-10-01 14:17 UTC · всего кодов: 138
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `2GTFALLFORTUNE` | 2GTFALLFORTUNE - chickens, chests, silver, and more (new!) | 2026-10-01 |
 | `Dorothy` | Dorothy - one full energy and one four-star chicken (new!) | 2026-09-09 |
 | `HappyBdayUDK` | HappyBdayUDK - 300k silver, 15 brews, and 50 auto battles (new!) | 2026-09-09 |
 | `ToAllFromMid` | ToAllFromMid - 100 energy, 30 brews, and 300k silver (new!) | 2026-09-09 |

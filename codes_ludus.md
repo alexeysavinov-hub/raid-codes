@@ -1,9 +1,12 @@
 # Промокоды: LUDUS: Merge Arena PvP
 
-Обновлено: 2026-09-30 13:23 UTC · всего кодов: 135
+Обновлено: 2026-10-01 14:17 UTC · всего кодов: 138
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `K7M2QX9P` | K7M2QX9P - 1 day of Ludus Royal, 1000 gold (Valid until October 31st) | 2026-10-01 |
+| `R4T8ZN3B` | R4T8ZN3B - 50 emeralds, 1000 gold (Valid until October 31st) | 2026-10-01 |
+| `W6Y1LC5D` | W6Y1LC5D - 4 ethereal crystals, 1000 gold (Valid until October 31st) | 2026-10-01 |
 | `GOLDVEIN` | GOLDVEIN - Cannonball (expires September 15th) (new!) | 2026-09-13 |
 | `THANHGIONG` | THANHGIONG - Compasses, Emeralds, Gold (Valid until September 10th) (new!) | 2026-09-07 |
 | `0NPI0QA4VG6N` | из списка кодов (91 шт.) | 2026-09-04 |
