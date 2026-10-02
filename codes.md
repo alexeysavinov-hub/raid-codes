@@ -1,9 +1,11 @@
 # Промокоды: RAID: Shadow Legends
 
-Обновлено: 2026-10-01 14:17 UTC · всего кодов: 138
+Обновлено: 2026-10-02 13:39 UTC · всего кодов: 140
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `HAPPYBDAYUDK` | HAPPYBDAYUDK — 300k Silver, 15 Brews, 50 Auto Battles | 2026-10-02 |
+| `DOROTHY` | DOROTHY — 1 Full Energy, 1 4-Star Chicken | 2026-10-02 |
 | `2GTFALLFORTUNE` | 2GTFALLFORTUNE - chickens, chests, silver, and more (new!) | 2026-10-01 |
 | `Dorothy` | Dorothy - one full energy and one four-star chicken (new!) | 2026-09-09 |
 | `HappyBdayUDK` | HappyBdayUDK - 300k silver, 15 brews, and 50 auto battles (new!) | 2026-09-09 |
