@@ -1,9 +1,11 @@
 # Промокоды: RAID: Shadow Legends
 
-Обновлено: 2026-10-14 12:42 UTC · всего кодов: 141
+Обновлено: 2026-10-15 12:30 UTC · всего кодов: 143
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `RAIDAUTUMN` | RAIDAUTUMN - one five-star chicken and some silver | 2026-10-15 |
+| `TOALLFROMMID` | TOALLFROMMID - 100 energy, 30 brews, and 300k silver | 2026-10-15 |
 | `RAIDSHADOWLEGENDSCOM` | RAIDSHADOWLEGENDSCOM - chests, coins, and energy | 2026-10-09 |
 | `DOROTHY` | DOROTHY — 1 Full Energy, 1 4-Star Chicken | 2026-10-02 |
 | `HAPPYBDAYUDK` | HAPPYBDAYUDK — 300k Silver, 15 Brews, 50 Auto Battles | 2026-10-02 |
