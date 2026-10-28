@@ -1,9 +1,10 @@
 # Промокоды: RAID: Shadow Legends
 
-Обновлено: 2026-10-27 13:01 UTC · всего кодов: 143
+Обновлено: 2026-10-28 13:52 UTC · всего кодов: 144
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `HELLBENT` | HELLBENT - Teodor the Savant, 15 XP brews, 15 greater magic potions, and 300k silver (expires April 14, 2027) (new!) | 2026-10-28 |
 | `RAIDAUTUMN` | RAIDAUTUMN - one five-star chicken and some silver | 2026-10-15 |
 | `TOALLFROMMID` | TOALLFROMMID - 100 energy, 30 brews, and 300k silver | 2026-10-15 |
 | `RAIDSHADOWLEGENDSCOM` | RAIDSHADOWLEGENDSCOM - chests, coins, and energy | 2026-10-09 |
