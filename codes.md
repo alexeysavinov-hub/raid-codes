@@ -1,9 +1,11 @@
 # Промокоды: RAID: Shadow Legends
 
-Обновлено: 2026-11-03 14:53 UTC · всего кодов: 145
+Обновлено: 2026-11-04 15:12 UTC · всего кодов: 147
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `2GTTrickortreat` | 2GTTrickortreat - energy, brews, and silver (new!) | 2026-11-04 |
+| `Raidoween` | Raidoween - 250 energy and brews (new!) | 2026-11-04 |
 | `Podcast2` | Podcast2 — 15 XP Brews, 1 Epic Skill Tome, 1 Energy Refill, 300k Silver | 2026-11-03 |
 | `HELLBENT` | HELLBENT - Teodor the Savant, 15 XP brews, 15 greater magic potions, and 300k silver (expires April 14, 2027) (new!) | 2026-10-28 |
 | `RAIDAUTUMN` | RAIDAUTUMN - one five-star chicken and some silver | 2026-10-15 |
