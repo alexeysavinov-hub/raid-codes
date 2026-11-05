@@ -1,13 +1,13 @@
 # Промокоды: LUDUS: Merge Arena PvP
 
-Обновлено: 2026-11-04 15:13 UTC · всего кодов: 142
+Обновлено: 2026-11-05 15:13 UTC · всего кодов: 142
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
-| `K7M2XQ9PL4RA` | K7M2XQ9PL4RA - 1-day Ludus Royal + 1,000 gold (Valid until November 30th) | 2026-11-04 |
-| `T8N3VZ6WJ5BD` | T8N3VZ6WJ5BD - 50 emeralds + 1,000 gold (Valid until November 30th) | 2026-11-04 |
 | `H4C9YF2KQ7MS` | H4C9YF2KQ7MS - 4 Ethereal Crystals + 1,000 gold (Valid until November 30th) | 2026-11-04 |
+| `K7M2XQ9PL4RA` | K7M2XQ9PL4RA - 1-day Ludus Royal + 1,000 gold (Valid until November 30th) | 2026-11-04 |
 | `SPOOKYSALE` | из списка кодов (94 шт.) | 2026-11-04 |
+| `T8N3VZ6WJ5BD` | T8N3VZ6WJ5BD - 50 emeralds + 1,000 gold (Valid until November 30th) | 2026-11-04 |
 | `K7M2QX9P` | K7M2QX9P - 1 day of Ludus Royal, 1000 gold (Valid until October 31st) | 2026-10-01 |
 | `R4T8ZN3B` | R4T8ZN3B - 50 emeralds, 1000 gold (Valid until October 31st) | 2026-10-01 |
 | `W6Y1LC5D` | W6Y1LC5D - 4 ethereal crystals, 1000 gold (Valid until October 31st) | 2026-10-01 |
