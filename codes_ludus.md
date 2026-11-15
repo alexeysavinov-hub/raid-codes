@@ -1,9 +1,10 @@
 # Промокоды: LUDUS: Merge Arena PvP
 
-Обновлено: 2026-11-14 13:58 UTC · всего кодов: 142
+Обновлено: 2026-11-15 14:34 UTC · всего кодов: 143
 
 | Код | Что даёт | Впервые замечен |
 | --- | --- | --- |
+| `TORNADO` | TORNADO - cannonballs (expires November 17th) (new!) | 2026-11-15 |
 | `H4C9YF2KQ7MS` | H4C9YF2KQ7MS - 4 Ethereal Crystals + 1,000 gold (Valid until November 30th) | 2026-11-04 |
 | `K7M2XQ9PL4RA` | K7M2XQ9PL4RA - 1-day Ludus Royal + 1,000 gold (Valid until November 30th) | 2026-11-04 |
 | `SPOOKYSALE` | из списка кодов (94 шт.) | 2026-11-04 |
